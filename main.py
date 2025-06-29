@@ -5,7 +5,7 @@ from reloj import Reloj
 
 def main():
     ventana = tk.Tk()
-    ventana.title("Gestor de Tareas Diarias")
+    ventana.title("Gestor de Tareas Diarias- oasjoasjdoasjdosd")
     ventana.geometry("500x500")
 
     reloj = Reloj(ventana)
