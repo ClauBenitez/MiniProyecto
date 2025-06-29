@@ -1,4 +1,4 @@
-import tkinter as tk
+""" import tkinter as tk
 ventana = tk.Tk()
 ventana.title('Lista de tareas')
 ventana.geometry('400x200')
@@ -18,3 +18,4 @@ boton_eliminar.pack()
 lista_tareas = tk.Listbox(ventana)
 lista_tareas.pack()
 ventana.mainloop()
+ """
