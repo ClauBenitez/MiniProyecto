@@ -16,3 +16,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+#este es solo la carcaza hay que adecuar en funcion de la adecuacion de los modulos de ustedes
