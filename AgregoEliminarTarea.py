@@ -53,3 +53,4 @@ boton_eliminar = ttk.Button(ventana, text="Eliminar", command=eliminar_tarea)
 boton_eliminar.grid(row=2, column=0, columnspan=2, sticky="ew")
 
 ventana.mainloop()
+ """

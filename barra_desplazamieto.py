@@ -1,4 +1,4 @@
-import tkinter as tk
+""" import tkinter as tk
 ventana = tk.Tk()
 ventana.title('Barra de desplazamiento' )
 ventana.geometry ('400x200' )
@@ -12,4 +12,4 @@ for i in range(100):
 lista.pack(side = tk.LEFT, fill =
 tk.BOTH)
 scrollbar .config(command = lista.yview)
-ventana.mainloop ()
+ventana.mainloop () """

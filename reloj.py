@@ -1,4 +1,4 @@
-import tkinter as tk
+""" import tkinter as tk
 import time
 ventana = tk.Tk()
 ventana.title('Reloj simple')
@@ -11,4 +11,4 @@ def hora():
  ventana.after(1000, hora)
 reloj.pack(anchor = 'center')
 hora()
-ventana.mainloop()
+ventana.mainloop() """
