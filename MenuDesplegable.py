@@ -1,4 +1,3 @@
-# Importaciones
 import tkinter as tk
 from tkinter import simpledialog, messagebox
 
@@ -138,7 +137,6 @@ def menuDesplegable(ventana, listbox):
     # evento toggle
     listaTareas.bind("<Double-Button-1>", toggle_completada)
 
-
     # Crea la barra de menú en la ventana principal
     barraMenu = tk.Menu(ventana)
     ventana.config(menu=barraMenu)  # Asocia la barra de menú a la ventana
@@ -152,6 +150,8 @@ def menuDesplegable(ventana, listbox):
     actualizarListaTareas()  # Muestra las tareas de la lista activa (o el mensaje si no hay)
 
 # Checkbox
+
+
 def toggle_completada(event):
     if not listaActiva or listaActiva not in diccionarioListas or listaTareas is None:
         return
@@ -164,4 +164,3 @@ def toggle_completada(event):
     tarea = diccionarioListas[listaActiva][indice]
     tarea["completada"] = not tarea["completada"]
     actualizarListaTareas()
-

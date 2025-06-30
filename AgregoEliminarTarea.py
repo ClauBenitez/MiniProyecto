@@ -5,6 +5,7 @@ import MenuDesplegable as menu
 entrada_tarea = None
 lista_tareas = None
 
+
 def configurar(entry_widget, listbox_widget):
     global entrada_tarea, lista_tareas
     entrada_tarea = entry_widget
@@ -17,7 +18,8 @@ def agregar_tarea():
 
     texto = entrada_tarea.get().strip()
     if texto:
-        menu.diccionarioListas[menu.listaActiva].append({"texto": texto, "completada": False})
+        menu.diccionarioListas[menu.listaActiva].append(
+            {"texto": texto, "completada": False})
         entrada_tarea.delete(0, tk.END)
         menu.actualizarListaTareas()
 
