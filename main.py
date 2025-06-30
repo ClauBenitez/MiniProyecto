@@ -1,26 +1,40 @@
+# main.py
 import tkinter as tk
-from MenuDesplegable import menuDesplegable
-# Comentado temporalmente porque el módulo abre ventana propia al importarse
-#from AgregoEliminarTarea import GestorTareas
-#from reloj import Reloj
+from tkinter import ttk
+import MenuDesplegable
+import AgregoEliminarTarea
 
-def main():
-    ventana = tk.Tk() # Crear ventana principal de la aplicación
-    ventana.title("Gestor de Tareas Diarias")
-    ventana.geometry("500x500")
+# Crear ventana principal
+ventana = tk.Tk()
+ventana.title("Gestor de Tareas")
+ventana.geometry("600x400")
+ventana.configure(padx=20, pady=20)
 
-    # Estas líneas se comentaron para evitar conflicto de ventanas múltiples
-    # ya que lo demas modulos se van a modificar, decidi comentarlos.
-    """ reloj = Reloj(ventana)
-    gestor = GestorTareas(ventana) """
+# Listbox de tareas
+lista_tareas = tk.Listbox(ventana, font=("Segoe UI", 12), height=12, activestyle="none")
+lista_tareas.grid(row=1, column=0, columnspan=2, sticky="nsew", pady=(10, 10))
+ventana.rowconfigure(1, weight=1)
+ventana.columnconfigure(0, weight=1)
 
+# Entry de tarea
+entrada = ttk.Entry(ventana, font=("Segoe UI", 12))
+entrada.grid(row=0, column=0, padx=(0, 10), pady=(10, 0), sticky="ew")
 
-    lista_tareas = tk.Listbox(ventana) # Creo un widget Listbox para mostrar tareas
-    lista_tareas.pack(fill=tk.BOTH, expand=True) # Ubico el Listbox para que se adapte al tamaño de ventana
-    menu = menuDesplegable(ventana, lista_tareas) # Creo y asocio el menú desplegable, pasándole ventana y Listbox
+# Scrollbar para la lista de tareas
+scrollbar = ttk.Scrollbar(ventana, orient="vertical", command=lista_tareas.yview)
+scrollbar.grid(row=1, column=2, sticky="ns")
+lista_tareas.config(yscrollcommand=scrollbar.set)
 
-    ventana.mainloop()
+# Integración con módulos
+MenuDesplegable.menuDesplegable(ventana, lista_tareas)
+AgregoEliminarTarea.configurar(entrada, lista_tareas)
 
-if __name__ == "__main__":
-    main()
-#este es solo la carcaza hay que adecuar en funcion de la adecuacion de los modulos de ustedes
+# Botón para agregar tarea
+boton_agregar = ttk.Button(ventana, text="Agregar", command=AgregoEliminarTarea.agregar_tarea)
+boton_agregar.grid(row=0, column=1, pady=(10, 0))
+
+# Botón para eliminar tarea
+boton_eliminar = ttk.Button(ventana, text="Eliminar", command=AgregoEliminarTarea.eliminar_tarea)
+boton_eliminar.grid(row=2, column=0, columnspan=2, sticky="ew", pady=(0, 10))
+
+ventana.mainloop()
